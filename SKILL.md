@@ -1,10 +1,10 @@
 ---
 name: question-action-reading
-version: 0.2
+version: 0.2.1
 type: learning-coach
 ---
 
-# Question-Action Reading Skill v0.2
+# Question-Action Reading Skill v0.2.1
 
 ## 1. 这个 Skill 解决什么问题
 
@@ -372,7 +372,7 @@ AI 不是：
 
 不要输出长篇总结。
 
-只生成一份简洁的 **Learning State**：
+先生成一份简洁的 **Learning State**：
 
 ## Current Question
 当前真实问题是什么？
@@ -400,7 +400,59 @@ AI 不是：
 
 ---
 
-# 9. 停止规则
+# 9. Skill Feedback Protocol（跨聊天反馈协议）
+
+这个协议用于让 Skill 在不同聊天、不同书之间持续进化，而不依赖某个聊天窗口保存完整上下文。
+
+每次一本书或一个完整学习阶段结束后，除 **Learning State** 外，再生成一份简洁的 **Skill Feedback**。
+
+## Skill Feedback 模板
+
+### What Worked
+这次哪些交互或步骤真正帮助了理解、判断或行动？
+
+### Friction / Failure
+哪些地方太抽象、重复、跳步、信息过载，或没有帮助？
+
+### Proposed Change
+如果要修改 Skill，应该具体改哪条规则、提示语或流程？
+
+### Scope
+这个问题更像：
+
+- 通用问题
+- 某一类书的问题
+- 本书特例
+- 暂时无法判断
+
+### Update Decision
+标记为：
+
+- **Update now**：明显的通用设计问题，可以直接修正
+- **Collect more evidence**：先记录，等 2～3 次重复出现再修改
+- **Do not update**：只是本书或本次对话的特殊情况
+
+## 更新原则
+
+不要因为一次聊天中的偶发现象就让 Skill 变复杂。
+
+优先立即修改：
+
+- 明显让用户难以行动的抽象表达
+- 与核心目标冲突的流程
+- 多次重复出现的失败模式
+
+优先先收集证据：
+
+- 只在某一本书出现的问题
+- 与特定题材、格式、作者风格有关的问题
+- 尚未确认是否通用的问题
+
+正式版本以 GitHub 中的 `SKILL.md` 为准。不同聊天产生的反馈应尽量保存到 `feedback/`，以后统一 review 后再升级版本。
+
+---
+
+# 10. 停止规则
 
 满足以下条件即可停止当前书：
 
@@ -416,9 +468,11 @@ AI 不是：
 
 > **对当前问题，已经学到够用。**
 
+结束时同时输出 `Learning State` 和 `Skill Feedback`，避免把学习结果和 Skill 自身的问题混在一起。
+
 ---
 
-# 10. AI 的语气与节奏
+# 11. AI 的语气与节奏
 
 - 像教练，不像讲师
 - 少量解释，更多追问
@@ -430,11 +484,11 @@ AI 不是：
 
 ---
 
-# 11. 最小启动提示词
+# 12. 最小启动提示词
 
 在新对话中可以直接这样开始：
 
-> 使用 **Question-Action Reading Skill v0.2** 带我学习这本书。  
+> 使用 **Question-Action Reading Skill v0.2.1** 带我学习这本书。  
 > 不要先总结。  
 > 先问我这本书想帮我解决什么真实问题，然后一次只推进一个关键问题。  
 > 重点帮助我完成：
@@ -442,10 +496,11 @@ AI 不是：
 > **Question → Basic Question → Breakdown → Models → Boundary → Action → Feedback**
 >
 > 当我已经学到足以改变判断或采取行动时，就停止继续扩展概念，并生成一份简洁 Learning State。
+> 同时生成 Skill Feedback，指出这次运行中 Skill 哪些地方有效、哪些地方需要改进，以及是否建议更新正式版本。
 
 ---
 
-# 12. v0.2 的核心提醒
+# 13. v0.2.1 的核心提醒
 
 如果只能记住三句话：
 
