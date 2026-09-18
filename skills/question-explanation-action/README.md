@@ -1,4 +1,4 @@
-[← 返回项目首页](../../README.md) · [查看 AI 执行规则](./SKILL.md)
+[← 返回项目首页](../../README.md) · [上一层：Question Framing](../question-framing/README.md) · [查看 AI 执行规则](./SKILL.md)
 
 # Question → Explanation → Action
 
@@ -10,7 +10,7 @@
 
 ## 一句话理解
 
-遇到一个现象时，不急着找唯一答案。
+当已经有一个暂时值得研究的 Working Question 时，不急着找唯一答案。\n\n如果连“真正该研究什么问题”都还不清楚，先使用 [Question Framing](../question-framing/README.md)。
 
 先把问题问清楚，拆掉默认假设，提出多个解释，再用事实和反例收缩；如果当前原因只是表面现象，就继续追因；如果多个因素相互影响，就进入系统思考；当理解已经足够，就停止解释，转向寻找真正值得行动的杠杆点。
 
