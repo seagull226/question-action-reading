@@ -1,10 +1,10 @@
-[← 返回项目首页](../../README.md) · [查看 AI 执行规则](./SKILL.md)
+[← 返回项目首页](../../README.md) · [如果问题还不清楚：Question Framing](../question-framing/README.md) · [查看 AI 执行规则](./SKILL.md)
 
 # Question-Action Reading
 
 > A problem-driven reading skill for turning books into judgment, action, and transferable understanding.
 
-这不是一个“帮你总结一本书”的 Prompt。
+这不是一个“帮你总结一本书”的 Prompt。\n\n如果用户还说不清楚“到底希望这本书帮自己解决什么”，可以先使用 [Question Framing](../question-framing/README.md) 形成 Working Question，再进入本 Skill。
 
 它更关注一个问题：
 
