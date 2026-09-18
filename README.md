@@ -172,6 +172,14 @@ question-action-reading/
 
 ---
 
+## Hypotheses
+
+项目中的重要未验证结构，不直接升级为正式架构，而是先记录证据和验证条件。
+
+- [Shared Question Operators：多个 Skill 是否共享一个底层问题操作层？](./docs/hypotheses/question-operators.md) — **Unverified**
+
+---
+
 ## 当前状态
 
 - Question Framing：v0.1.0，第一版问题入口 Skill。
