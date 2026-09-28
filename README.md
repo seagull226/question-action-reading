@@ -17,7 +17,7 @@ Question Framing
  Working Question
        ↓
 Question → Explanation → Action
-这个问题该怎么理解、验证、下钻和行动？
+这个问题该怎么理解、验证、下钻、行动并用反馈更新？
        ↓
 如果需要书里的知识或模型
        ↓
@@ -58,9 +58,9 @@ Question-Action Reading
 
 ---
 
-### 2. Question → Explanation → Action · v0.1.0
+### 2. Question → Explanation → Action · v0.2.0
 
-**用途：分析一个已经暂时值得研究的问题，找到当前最有解释力的答案，并决定是否继续下钻、进入系统思考或转向行动。**
+**用途：分析一个已经暂时值得研究的问题，找到当前最有解释力的答案，并决定是否继续下钻、进入系统思考、转向行动，以及如何用现实反馈更新模型。**
 
 核心路由：
 
@@ -72,8 +72,9 @@ Question-Action Reading
 > 6. 这个原因还值得继续问“为什么”吗？  
 > 7. 它是不是其实是一个循环问题？  
 > 8. 如果要改变结果，哪里最值得动？
+> 9. 行动后，现实有没有按预期变化？
 
-- [README：给人看的 8 条通路与完整架构](./skills/question-explanation-action/README.md)
+- [README：给人看的 9 条通路与完整架构](./skills/question-explanation-action/README.md)
 - [SKILL.md：给 AI 执行的路由规则](./skills/question-explanation-action/SKILL.md)
 
 适合：
@@ -87,9 +88,9 @@ Question-Action Reading
 
 ---
 
-### 3. Question-Action Reading · v0.2.1
+### 3. Question-Action Reading · v0.3.0
 
-**用途：带着真实问题读一本或多本书。**
+**用途：带着真实问题读一本或多本书，并把书中的 claim、证据、模型与边界转成可检验输入。**
 
 它不以“总结全书”为目标，而是让书真正改变判断和行动。
 
@@ -113,9 +114,9 @@ Question-Action Reading
 
 | | Question Framing | Question → Explanation → Action | Question-Action Reading |
 |---|---|---|---|
-| 核心问题 | 我应该问什么？ | 这个问题该怎么想下去？ | 一本书怎么帮助这个问题？ |
+| 核心问题 | 我应该问什么？ | 这个问题该怎么想下去并持续更新？ | 一本书怎么帮助这个问题？ |
 | 典型输入 | 模糊困惑 / 初始问题 / 症状 | Working Question | 问题 + 一本或多本书 |
-| 主要任务 | 还原现象、目标、重构问题 | 竞争解释、证据、下钻、系统、杠杆 | 调用书中模型、判断边界、行动 |
+| 主要任务 | 还原现象、目标、重构问题 | 竞争解释、证据、下钻、系统、杠杆、反馈更新 | 调用书中模型、区分作者与推断、判断边界、行动 |
 | 主要输出 | Working Question | 当前解释、剩余、系统结构、杠杆点 | Learning State、Action、Skill Feedback |
 | 停止条件 | 问题已足够支持分析 | 理解已足够或证据不足以继续 | 对当前问题已经学到够用 |
 | 是否能单独使用 | 是 | 是 | 是 |
@@ -139,6 +140,10 @@ Question-Action Reading
 - **边界比口号重要。** 一个方法什么时候不成立，同样重要。
 - **理解最终要回到行动。** 如果继续解释已经不再改变判断或行动，就应该停。
 - **行动也是验证。** 真实反馈会反过来修正问题和解释。
+- **直觉先降级为假设。** 没有依据的“应该如此”不能直接获得事实地位。
+- **区分两种差距。** 假设与现实冲突时更新假设；目标与现实有距离时用差距校正行动。
+- **系统思考按需启用。** 只有在反复、反馈、延迟、积累、多主体互动或增长受限真正重要时才进入系统层。
+- **目标、限制、杠杆点不是一个东西。** 目标回答去哪，限制回答为什么卡住，杠杆点回答改哪里最有效。
 
 ---
 
@@ -183,8 +188,8 @@ question-action-reading/
 ## 当前状态
 
 - Question Framing：v0.1.0，第一版问题入口 Skill。
-- Question → Explanation → Action：v0.1.0，第一版通用推理路由。
-- Question-Action Reading：v0.2.1，已从真实读书过程持续迭代。
+- Question → Explanation → Action：v0.2.0，加入系统检查、限制/杠杆区分与反馈更新。
+- Question-Action Reading：v0.3.0，经《第五项修炼》实测后，明确 Reading Adapter 定位与作者/推断分离。
 
 接下来会优先通过真实问题测试三个 Skill 的**边界和交接点**，而不是继续为了“完整”增加方法。
 
