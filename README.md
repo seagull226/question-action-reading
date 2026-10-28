@@ -6,6 +6,24 @@
 
 当前包含三个彼此独立、但可以组合使用的 Skill。
 
+## 实验中的问题与书网络
+
+正在试验把阅读积累为 **问题 → 观点或方法 → 书中出处** 的网络：一个问题可以关联多本书，一本书也可以贡献多个不同的回答。每条关联保留理由、适用边界，以及作者主张与我们推断的区别。
+
+- [设计说明与待验证假设](./docs/hypotheses/question-book-network.md)
+- [Question-Action Reading v0.4.0-draft](./drafts/question-action-reading/SKILL.md)：试用草案，不替换正式 v0.3.0。
+- [首次提炼样例](./drafts/question-action-reading/examples/economics-thinking-pilot.md)：使用《一课经济学》《第五项修炼》的局部原文及《噪声》作者访谈。
+- [问知交互 HTML](./prototypes/question-book-atlas.html)：12 个问题、8 个观点、3 本书，支持搜索、问题与书双向浏览、手动添加问题及导出记录。
+- [下一轮样本与验证计划](./docs/experiments/question-book-network-next.md)
+
+**打开 HTML：**下载 `prototypes/question-book-atlas.html`，用浏览器打开即可。页面的样式、数据和交互都包含在单个文件中；查看外部原文链接需要联网。GitHub 的文件页显示源码，这里尚未配置在线网站。
+
+自建问题保存在当前浏览器的本地存储中，不会自动写回 GitHub；不同打开地址、浏览器或清理数据可能影响记录可用性，请导出备份。目前导出供保留和后续处理，尚不提供导入功能。
+
+![问知交互原型预览](./prototypes/question-book-atlas-preview.jpg)
+
+当前成果是局部材料提炼与交互原型，应用关联尚未经过真实问题验证；不代表三本书的完整蒸馏，也不代表新草案已被证明优于旧版。
+
 ## 一张图看懂三个 Skill
 
 ```text
@@ -152,6 +170,14 @@ Question-Action Reading
 ```text
 question-action-reading/
 ├─ README.md
+├─ docs/
+│  ├─ hypotheses/          # 设计假设与采用条件
+│  └─ experiments/         # 下一轮验证计划
+├─ drafts/
+│  └─ question-action-reading/  # v0.4.0 草案、记录规范与样例
+├─ prototypes/
+│  ├─ question-book-atlas.html
+│  └─ question-book-atlas-preview.jpg
 └─ skills/
    ├─ question-framing/
    │  ├─ README.md
@@ -182,6 +208,7 @@ question-action-reading/
 项目中的重要未验证结构，不直接升级为正式架构，而是先记录证据和验证条件。
 
 - [Shared Question Operators：多个 Skill 是否共享一个底层问题操作层？](./docs/hypotheses/question-operators.md) — **Unverified**
+- [问题与书的网络：跨书积累与检索是否能改善判断？](./docs/hypotheses/question-book-network.md) — **Unverified / 有局部提炼样例与 HTML 原型**
 
 ---
 
@@ -190,6 +217,7 @@ question-action-reading/
 - Question Framing：v0.1.0，第一版问题入口 Skill。
 - Question → Explanation → Action：v0.2.0，加入系统检查、限制/杠杆区分与反馈更新。
 - Question-Action Reading：v0.3.0，经《第五项修炼》实测后，明确 Reading Adapter 定位与作者/推断分离。
+- 实验区：v0.4.0-draft、首次跨书提炼样例和问知 HTML；与上述正式版本分开维护。
 
 接下来会优先通过真实问题测试三个 Skill 的**边界和交接点**，而不是继续为了“完整”增加方法。
 
